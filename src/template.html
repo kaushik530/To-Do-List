@@ -6,14 +6,33 @@
     <title>krusty-krab</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <button data-page="home" class="nav-button">Home</button>
-            <button data-page="menu" class="nav-button">Menu</button>
-            <button data-page="about" class="nav-button">About</button>
-        </nav>
-    </header>
-    <div id="container">
+  <main>
+    <div class="project-container">
+        <h1>My Projects</h1>
+         <button class="add-project"><span class="add-style">+</span> New Project</button>
+         <div class="projects">
+         </div>
+
+         <div class="project-form">
+            <form>
+                <input type="text" class="project-name" placeholder="Project name">
+
+                <div class="form-buttons">
+                    <button type="submit">Create</button>
+                    <button type="button" class="close-project-form">Close</button>
+                </div>
+            </form>
+        </div>
+   
+        </div>
+        
+    <div class="task-container">
+        <h1>Tasks:</h1>
+        <div class="tasks">
+        </div>
+        <button class="add-task"><span class="add-style">+</span> New Task</button>
+
     </div>
+  </main> 
 </body>
 </html>
