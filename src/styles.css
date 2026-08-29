@@ -57,6 +57,7 @@ h1 {
     color: white;
 
     border-radius: 10px;
+
 }
 
 .projectRow span {
@@ -215,6 +216,55 @@ button {
     background-color: #eee;
 }
 
+.task-form {
+    display: none;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 400px;
+    padding: 35px;
+
+    background-color: #fffaf2;
+    border: 2px solid #7d2945;
+    border-radius: 16px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    z-index: 10;
+}
+
+.task-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+    width: 100%;
+    padding: 12px;
+
+    border: 2px solid #d4c3ad;
+    border-radius: 8px;
+
+    font: inherit;
+    background-color: white;
+}
+
+.task-form textarea {
+    resize: vertical;
+}
+
+.task-form input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+    outline: none;
+    border-color: #7d2945;
+}
 /* =========================
    MOBILE
    ========================= */
