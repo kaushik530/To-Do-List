@@ -1,7 +1,7 @@
 //projectView.js
 import { projects, addProject ,deleteProject} from "./project.js";
 import { renderTasks } from "./taskView.js";
-
+import { taskMode ,TaskModes ,setTaskMode} from "./task.js";
 export let selectedProject=null;
 
 const addProjectBtn=document.querySelector(".add-project");
@@ -58,19 +58,22 @@ projectSection.addEventListener("click", (event) => {
     
     if (!projectRow) return;
 
+    
+    
     if (event.target.classList.contains("delete-project")) {
         deleteProject(projectRow.dataset.id);
 
         if(projects.length===0){
             selectedProject=null;
-            renderTasks([]);
+            setTaskMode(TaskModes.PROJECT);
+            renderTasks();
         }
         renderProjects(projects);
         return;
     }
-    
+    setTaskMode(TaskModes.PROJECT);
     selectedProject = projects.find(project => project.id === projectRow.dataset.id);
 
-    renderTasks(selectedProject.tasks);
+    renderTasks();
 
 });

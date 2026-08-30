@@ -338,7 +338,7 @@ main {
 
 .taskRow {
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 20px 1fr  auto auto;
     align-items: center;
     gap: 20px;
 
@@ -375,12 +375,28 @@ main {
 }
 
 .taskRow span:nth-child(2) {
-    color: #6b7280;
+    color: #4e5766;
 
-    font-size: 13px;
+    font-size: 19px;
+
+    
 }
 
-
+.done{
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #6b7280;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.15s ease,
+   border-color 0.25s ease;
+}
+.done:checked {
+    background: #1dfc72;
+    border-color: #636363;
+}
 /* =========================
    DELETE TASK
    ========================= */
@@ -537,7 +553,32 @@ main {
 .close-task-form:hover {
     background: #f3f4f6;
 }
+.toast {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
 
+    padding: 12px 20px;
+    border-radius: 8px;
+
+    background: #171717;
+    color: white;
+
+    font-size: 14px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
 
 /* =========================
    MOBILE

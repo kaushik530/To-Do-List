@@ -1,4 +1,6 @@
 //project.js
+import {allTasks} from "./task.js";
+
 class Project{
     constructor(name){
         this.id=crypto.randomUUID();
@@ -24,12 +26,12 @@ export function assignProject(project,task){
     if (!project) return;
 
         project.tasks.push(task);
+        allTasks.push(task);
 }
 
 export function addProject(name){
     const project=new Project(name);
     projects.push(project);
-    
 }
 
 export function deleteProject(id) {
