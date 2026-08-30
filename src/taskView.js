@@ -4,6 +4,8 @@ import { format } from "date-fns";
 import { selectedProject } from "./projectView.js";
 import { taskMode ,TaskModes } from "./task.js";
 import { setTaskMode, getTaskMode } from "./task.js";
+import { saveProjects } from "./storage.js";
+import { projects } from "./project.js";
 
 const taskHeading = document.querySelector(".task-heading");
 const taskContainer=document.querySelector(".task-container");
@@ -21,6 +23,14 @@ const taskSection=document.querySelector(".tasks");
 const allTasksBtn = document.querySelector(".all-tasks");
 const upcomingTasksBtn = document.querySelector(".upcoming-tasks");
 const completedTasksBtn = document.querySelector(".completed-tasks");
+
+
+const taskDetails = document.querySelector(".task-details");
+const detailsTitle = document.querySelector(".details-title");
+const detailsDescription = document.querySelector(".details-description");
+const detailsDate = document.querySelector(".details-date");
+const detailsPriority = document.querySelector(".details-priority");
+const closeTaskDetailsBtn = document.querySelector(".close-task-details");
 
 
 allTasksBtn.addEventListener("click",()=> {
@@ -100,8 +110,7 @@ export function renderTasks() {
     taskContainer.style.display = "flex";
     taskSection.innerHTML = "";
 
-    let tasksToRender;
-
+    let tasksToRender=[];
     if (taskMode === TaskModes.ALL) { 
         addTaskBtn.style.display="none";
          taskHeading.textContent = "All Tasks";
@@ -140,6 +149,7 @@ export function renderTasks() {
         taskHeading.textContent = selectedProject.name;
     }
 
+
       if (tasksToRender.length === 0) {
         const message = document.createElement("p");
         message.textContent = "No tasks yet. Create one to get started.";
@@ -168,6 +178,11 @@ export function renderTasks() {
             "MMM d"
         );
 
+        const status = document.createElement("div");
+        status.classList.add("statusPriority", task.priority);
+        status.title = `${task.priority} priority`;
+
+
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "X";
         deleteBtn.classList.add("delete-task");
@@ -176,6 +191,7 @@ export function renderTasks() {
             done,
             title,
             dueDate,
+            status,
             deleteBtn
         );
 
@@ -198,7 +214,73 @@ else if(event.target.classList.contains("done")){
     const task = allTasks.find(task => task.id === taskId);
 
     task.completed = event.target.checked;
+    saveProjects(projects);
 }
 
 });
 
+
+function showTaskDetails(task) {
+    detailsTitle.textContent = task.title;
+
+    detailsDescription.textContent =
+        task.description || "No description.";
+
+    detailsDate.textContent =
+        `Due: ${format(new Date(task.dueDate), "MMMM d, yyyy")}`;
+
+    detailsPriority.textContent =
+        `Priority: ${task.priority}`;
+
+    taskDetails.classList.add("show");
+}
+
+
+
+taskSection.addEventListener("click", (event) => {
+
+    // Checkbox
+    if (event.target.classList.contains("done")) {
+
+        const taskRow = event.target.closest(".taskRow");
+        const taskId = taskRow.dataset.id;
+
+        const task = allTasks.find(task => task.id === taskId);
+
+        if (!task) return;
+
+        task.completed = event.target.checked;
+        saveProjects(projects);
+
+        return;
+    }
+
+    // Delete button
+    if (event.target.classList.contains("delete-task")) {
+
+        const taskRow = event.target.closest(".taskRow");
+        const taskId = taskRow.dataset.id;
+
+        deleteTask(taskId, selectedProject.tasks);
+        renderTasks();
+
+        return;
+    }
+
+    // Task row
+    const taskRow = event.target.closest(".taskRow");
+
+    if (!taskRow) return;
+
+    const taskId = taskRow.dataset.id;
+
+    const task = allTasks.find(task => task.id === taskId);
+
+    if (!task) return;
+
+    showTaskDetails(task);
+});
+
+closeTaskDetailsBtn.addEventListener("click", () => {
+    taskDetails.classList.remove("show");
+});

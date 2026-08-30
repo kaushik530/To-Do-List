@@ -1,5 +1,6 @@
 //task.js
-import { assignProject } from "./project.js";
+import { assignProject ,projects} from "./project.js";
+import { saveProjects } from "./storage.js";
 
 export class Task {
     constructor(title, description, dueDate, priority) {
@@ -8,7 +9,7 @@ export class Task {
         this.dueDate = dueDate;
         this.priority = priority;
         this.id = crypto.randomUUID();
-        this.Completed=false;
+        this.completed=false;
     }
 
     
@@ -39,6 +40,7 @@ export function addTask(title, description, dueDate, priority,project) {
 
     const task = new Task(title, description, dueDate, priority);
     assignProject(project, task);
+    saveProjects(projects);
 
 }
 

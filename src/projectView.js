@@ -52,6 +52,8 @@ function renderProjects(projects) {
     });
 }
 
+renderProjects(projects);
+
 projectSection.addEventListener("click", (event) => {
     
     const projectRow = event.target.closest(".projectRow");

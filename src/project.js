@@ -1,5 +1,6 @@
 //project.js
 import {allTasks} from "./task.js";
+import { saveProjects ,loadProjects } from "./storage.js";
 
 class Project{
     constructor(name){
@@ -19,7 +20,21 @@ class Project{
 
 }
 
-export const projects=[];
+export const projects = [];
+
+const savedProjects = loadProjects();
+
+savedProjects.forEach(data => {
+    const project = new Project(data.name);
+
+    project.id = data.id;
+    project.task = data.task;
+    projects.push(project);
+
+    project.task.forEach(task => {
+        allTasks.push(task);
+    });
+});
 
 export function assignProject(project,task){
 
@@ -32,6 +47,7 @@ export function assignProject(project,task){
 export function addProject(name){
     const project=new Project(name);
     projects.push(project);
+    saveProjects(projects);
 }
 
 export function deleteProject(id) {
@@ -40,4 +56,5 @@ export function deleteProject(id) {
     if (index !== -1) {
         projects.splice(index, 1);
     }
+    saveProjects(projects);
 }
