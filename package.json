@@ -1,5 +1,5 @@
 {
-  "name": "krusty-krab",
+  "name": "To-Do-List",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kaushik530/krusty-krab.git"
+    "url": "git+https://github.com/kaushik530/To-Do-List.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/kaushik530/krusty-krab/issues"
+    "url": "https://github.com/kaushik530/To-Do-List/issues"
   },
-  "homepage": "https://github.com/kaushik530/krusty-krab#readme",
+  "homepage": "https://github.com/kaushik530/To-Do-List#readme",
   "devDependencies": {
     "css-loader": "^7.1.4",
     "html-webpack-plugin": "^5.6.8",
