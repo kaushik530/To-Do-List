@@ -1,6 +1,8 @@
+//projectView.js
 import { projects, addProject ,deleteProject} from "./project.js";
+import { renderTasks } from "./taskView.js";
 
-export let selectedProjectID="";
+export let selectedProject=null;
 
 const addProjectBtn=document.querySelector(".add-project");
 const projectSection=document.querySelector(".projects");
@@ -11,14 +13,15 @@ const projectForm = projectFormContainer.querySelector("form");
 const closeFormBtn=document.querySelector(".close-project-form")
 
 addProjectBtn.addEventListener("click",()=>{
-    projectForm.style.display="block";
+    projectFormContainer.style.display="block";
 })
 
 closeFormBtn.addEventListener("click",()=>{
-    projectForm.style.display="none"
+    projectFormContainer.style.display="none"
 })
 
 projectForm.addEventListener("submit", (event) =>{
+    projectFormContainer.style.display="none";
     event.preventDefault();
 
     const name=projectForm.querySelector(".project-name").value
@@ -50,17 +53,24 @@ function renderProjects(projects) {
 }
 
 projectSection.addEventListener("click", (event) => {
+    
     const projectRow = event.target.closest(".projectRow");
-
+    
     if (!projectRow) return;
 
     if (event.target.classList.contains("delete-project")) {
         deleteProject(projectRow.dataset.id);
+
+        if(projects.length===0){
+            selectedProject=null;
+            renderTasks([]);
+        }
         renderProjects(projects);
         return;
     }
+    
+    selectedProject = projects.find(project => project.id === projectRow.dataset.id);
 
-    selectedProjectID = projectRow.dataset.id;
+    renderTasks(selectedProject.tasks);
 
-    console.log("Selected:", selectedProjectID);
 });

@@ -3,37 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do</title>
+    <title>Do It</title>
 </head>
+
 <body>
-  <main>
-    <div class="project-container">
-        <h1>My Projects</h1>
-         <button class="add-project"><span class="add-style">+</span> New Project</button>
-         <div class="projects">
-         </div>
+    <main>
 
-         <div class="project-form">
-            <form>
-                <input type="text" class="project-name" placeholder="Project name">
+        <!-- ================= PROJECT SIDEBAR ================= -->
+        <aside class="project-container">
 
-                <div class="form-buttons">
-                    <button type="submit">Create</button>
-                    <button type="button" class="close-project-form">Close</button>
+            <div class="brand">
+                <img class="logo" alt="Do It logo">
+                <span class="title">DO IT!</span>
+            </div>
+
+            <nav class="task-navigation">
+                <div class="all-tasks">
+                    All Tasks
                 </div>
-            </form>
-        </div>
-   
-        </div>
-        
-    <div class="task-container">
-        <h1>Tasks:</h1>
-     
-        <button class="add-task"><span class="add-style">+</span> New Task</button>
-        <div class="tasks">
-        </div>
-        <div class="task-form">
-            <form>
+
+                <div class="upcoming-tasks">
+                    Upcoming
+                </div>
+                <div class="completed-tasks">
+                    Completed
+                </div>
+            </nav>
+
+            <section class="project-list">
+                <h1>My Projects</h1>
+
+                <button class="add-project">
+                    <span class="add-style">+</span>
+                    New Project
+                </button>
+
+                <div class="projects"></div>
+            </section>
+
+            <!-- Project Form -->
+            <div class="project-form">
+                <form>
+                    <input
+                        type="text"
+                        class="project-name"
+                        placeholder="Project name"
+                        required
+                    >
+
+                    <div class="form-buttons">
+                        <button type="submit">Create</button>
+                        <button
+                            type="button"
+                            class="close-project-form"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </aside>
+
+
+        <!-- ================= TASK AREA ================= -->
+        <section class="task-container">
+            
+            <div class="task-header">
+                <h1>Tasks:</h1>
+
+                <button class="add-task">
+                    <span class="add-style">+</span>
+                    New Task
+                </button>
+            </div>
+
+            <div class="tasks"></div>
+
+            <!-- Task Form -->
+            <div class="task-form">
+                <form>
+
                     <input
                         type="text"
                         class="task-title"
@@ -54,7 +104,9 @@
                     >
 
                     <select class="task-priority" required>
-                        <option value="" disabled selected>Priority</option>
+                        <option value="" disabled selected>
+                            Priority
+                        </option>
                         <option value="low">Low</option>
                         <option value="medium">Medium</option>
                         <option value="high">High</option>
@@ -62,11 +114,20 @@
 
                     <div class="form-buttons">
                         <button type="submit">Create</button>
-                        <button type="button" class="close-task-form">Close</button>
+
+                        <button
+                            type="button"
+                            class="close-task-form"
+                        >
+                            Close
+                        </button>
                     </div>
+
                 </form>
-    </div>
-    </div>
-  </main> 
+            </div>
+
+        </section>
+
+    </main>
 </body>
 </html>

@@ -19,10 +19,10 @@ export function addTask(title, description, dueDate, priority,project) {
 
 }
 
-export function deleteTask(id,tasks) {
-    const index = tasks.findIndex(task => task.id === id);
+export function deleteTask(id) {
+    const index = selectedProject.tasks.findIndex(task => task.id === id);
 
     if (index !== -1) {
-        tasks.splice(index, 1);
+        selectedProject.tasks.splice(index, 1);
     }
 }

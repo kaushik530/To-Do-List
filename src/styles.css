@@ -1,141 +1,425 @@
-*, *::before, *::after {
+/* =========================
+   RESET
+   ========================= */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    color: #222;
+    font-family: Inter, Arial, sans-serif;
+    color: #1f2937;
+    background: #f5f6f8;
 }
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* =========================
+   LAYOUT
+   ========================= */
 
 main {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 280px 1fr;
     min-height: 100vh;
 }
 
-/* =========================
-   CONTAINERS
-   ========================= */
 
-.project-container,
-.task-container {
-    padding: 40px;
-}
+/* =========================
+   SIDEBAR
+   ========================= */
 
 .project-container {
-    background-color:#faa056 ;
+    position: relative;
+
+    padding: 32px 24px;
+
+    background: #171717;
+    color: #f5f5f5;
+
+    min-height: 100vh;
 }
 
-.task-container {
-    background-color: #f3dfc1;
-}
 
 /* =========================
-   HEADINGS
+   BRAND
    ========================= */
 
-h1 {
-    margin-bottom: 30px;
-    font-size: 32px;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 45px;
 }
 
+.logo {
+    width: 34px;
+    height: 34px;
+
+    object-fit: contain;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+
 /* =========================
-   PROJECTS
+   NAVIGATION
    ========================= */
+
+.task-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    margin-bottom: 38px;
+}
+
+.all-tasks,
+.upcoming-tasks,.completed-tasks{
+            
+    padding: 11px 14px;
+
+    border-radius: 7px;
+
+    color: #d4d4d4;
+    background: transparent;
+
+    font-size: 15px;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: background 0.15s ease,
+                color 0.15s ease;
+}
+
+.all-tasks:hover,
+.upcoming-tasks:hover,.completed-tasks:hover {
+    background: #262626;
+    color: white;
+}
+
+
+/* =========================
+   PROJECT LIST
+   ========================= */
+
+.project-list h1 {
+    margin-bottom: 16px;
+
+    color: #737373;
+
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.add-project {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+    padding: 10px 14px;
+
+    border: 1px solid #404040;
+    border-radius: 7px;
+
+    background: #262626;
+    color: #f5f5f5;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.15s ease,
+                border-color 0.15s ease;
+}
+
+.add-project:hover {
+    background: #303030;
+    border-color: #525252;
+}
+
+.add-style {
+    margin-right: 7px;
+
+    font-size: 18px;
+    line-height: 1;
+}
+
+
+/* =========================
+   PROJECT ROW
+   ========================= */
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
 
 .projectRow {
     display: flex;
     align-items: center;
-    justify-content: center;
+
     width: 100%;
-    padding: 12px 14px;
-    margin-bottom: 10px;
+    min-height: 42px;
 
-    background-color: #af3200;
+    padding: 8px 10px 8px 14px;
+
+    border-radius: 7px;
+
+    background: transparent;
+    color: #d4d4d4;
+
+    cursor: pointer;
+
+    transition: background 0.15s ease,
+                color 0.15s ease;
+}
+
+.projectRow:hover {
+    background: #262626;
     color: white;
-
-    border-radius: 10px;
-
 }
 
 .projectRow span {
-    font-size: 16px;
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    font-size: 14px;
 }
 
+
+/* =========================
+   DELETE PROJECT
+   ========================= */
+
 .delete-project {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
     margin-left: auto;
-    padding: 0;
 
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
+    border: none;
+    border-radius: 5px;
 
-    background-color: transparent;
-    color: white;
+    background: transparent;
+    color: #737373;
 
     font-size: 13px;
-    font-weight: bold;
-    line-height: 1;
+    font-weight: 600;
 
     cursor: pointer;
 
-    transition: 0.2s ease;
+    opacity: 0;
+
+    transition: background 0.15s ease,
+                color 0.15s ease,
+                opacity 0.15s ease;
+}
+
+.projectRow:hover .delete-project {
+    opacity: 1;
 }
 
 .delete-project:hover {
-    background-color: white;
-    color: #7d2945;
+    background: #3f2020;
+    color: #f87171;
 }
 
-.delete-project:active {
-    transform: scale(0.9);
-}
 
 /* =========================
-   ADD BUTTONS
+   TASK AREA
    ========================= */
 
-button {
-    border: none;
-    border-radius: 8px;
-    padding: 12px 18px;
+.task-container {
+    display: none;
+    min-width: 0;
+    flex-direction: column;
+    gap: 50px;
+    margin:  24px 20px;
 
-    font-size: 16px;
-    cursor: pointer;
+
+    background: #f8f9fb;
 }
 
-.add-project,
+
+/* =========================
+   TASK HEADER
+   ========================= */
+
+.task-header {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    max-width: 900px;
+}
+
+.task-header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+}
+
 .add-task {
-    background-color: white;
-    color: #222;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    max-width: 200px;
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #171717;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.15s ease,
+                transform 0.1s ease;
 }
 
-.add-project:hover,
 .add-task:hover {
-    background-color: #f1f1f1;
+    background: #303030;
 }
 
-.add-style {
-    font-size: 20px;
-    font-weight: bold;
-    margin-right: 5px;
+.add-task:active {
+    transform: scale(0.98);
 }
 
 
 /* =========================
-   PROJECT FORM
+   TASK LIST
    ========================= */
 
-.project-form {
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    max-width: 900px;
+
+}
+
+
+/* =========================
+   TASK ROW
+   ========================= */
+
+.taskRow {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 20px;
+
+    min-height: 64px;
+
+    padding: 12px 16px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 9px;
+
+    background: white;
+
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+
+    transition: border-color 0.15s ease,
+                box-shadow 0.15s ease;
+}
+
+.taskRow:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.taskRow span:first-child {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: #111827;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.taskRow span:nth-child(2) {
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   DELETE TASK
+   ========================= */
+
+.delete-task {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 6px;
+
+    background: transparent;
+    color: #9ca3af;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.15s ease,
+                color 0.15s ease;
+}
+
+.delete-task:hover {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+/* =========================
+   FORMS
+   ========================= */
+
+.project-form,
+.task-form {
     display: none;
 
     position: fixed;
@@ -144,43 +428,68 @@ button {
 
     transform: translate(-50%, -50%);
 
-    width: 350px;
-    padding: 35px;
+    width: min(400px, calc(100vw - 40px));
 
-    background-color: #fffaf2;
+    padding: 28px;
 
-    border: 2px solid #7d2945;
-    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    background: white;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.18);
 
     z-index: 10;
 }
 
-.project-form form {
+.project-form form,
+.task-form form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 14px;
 }
 
-.project-name {
+
+/* =========================
+   FORM INPUTS
+   ========================= */
+
+.project-name,
+.task-form input,
+.task-form textarea,
+.task-form select {
     width: 100%;
-    padding: 14px 16px;
 
-    border: 2px solid #d4c3ad;
-    border-radius: 8px;
+    padding: 12px 13px;
 
-    background-color: white;
-    color: #222;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
 
-    font-size: 16px;
+    background: white;
+    color: #111827;
+
     outline: none;
+
+    transition: border-color 0.15s ease,
+                box-shadow 0.15s ease;
 }
 
-.project-name:focus {
-    border-color: #7d2945;
-    box-shadow: 0 0 0 3px rgba(125, 41, 69, 0.12);
+.project-name:focus,
+.task-form input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.1);
 }
+
+.task-form textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
 
 /* =========================
    FORM BUTTONS
@@ -189,93 +498,89 @@ button {
 .form-buttons {
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
+    gap: 8px;
+
+    margin-top: 5px;
 }
 
 .form-buttons button {
-    padding: 10px 18px;
-    font-weight: bold;
+    padding: 9px 16px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
 }
 
 .form-buttons button[type="submit"] {
-    background-color: #7d2945;
+    border: none;
+
+    background: #171717;
     color: white;
 }
 
 .form-buttons button[type="submit"]:hover {
-    background-color: #642139;
+    background: #303030;
 }
 
-.close-project-form {
-    background-color: transparent;
-    border: 1px solid #bbb;
-    color: #555;
+.close-project-form,
+.close-task-form {
+    border: 1px solid #d1d5db;
+
+    background: white;
+    color: #4b5563;
 }
 
-.close-project-form:hover {
-    background-color: #eee;
+.close-project-form:hover,
+.close-task-form:hover {
+    background: #f3f4f6;
 }
 
-.task-form {
-    display: none;
 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    width: 400px;
-    padding: 35px;
-
-    background-color: #fffaf2;
-    border: 2px solid #7d2945;
-    border-radius: 16px;
-
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-
-    z-index: 10;
-}
-
-.task-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.task-form input,
-.task-form textarea,
-.task-form select {
-    width: 100%;
-    padding: 12px;
-
-    border: 2px solid #d4c3ad;
-    border-radius: 8px;
-
-    font: inherit;
-    background-color: white;
-}
-
-.task-form textarea {
-    resize: vertical;
-}
-
-.task-form input:focus,
-.task-form textarea:focus,
-.task-form select:focus {
-    outline: none;
-    border-color: #7d2945;
-}
 /* =========================
    MOBILE
    ========================= */
 
 @media (max-width: 700px) {
+
     main {
         grid-template-columns: 1fr;
     }
 
-    .project-container,
+    .project-container {
+        min-height: auto;
+        padding: 24px 20px;
+    }
+
+    .brand {
+        margin-bottom: 25px;
+    }
+
+    .task-navigation {
+        margin-bottom: 25px;
+    }
+
+    .project-list h1 {
+        margin-top: 20px;
+    }
+
     .task-container {
-        padding: 25px;
+        padding: 30px 20px;
+    }
+
+    .task-header {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .task-header h1 {
+        font-size: 25px;
+    }
+
+    .taskRow {
+        grid-template-columns: 1fr auto auto;
+        gap: 10px;
     }
 }
