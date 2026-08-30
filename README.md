@@ -1,49 +1,93 @@
-# Krusty Krab
+# To-Do List
 
-A SpongeBob-themed restaurant website built with JavaScript, CSS, and Webpack.
-
-## Live Demo
-
-[View the deployed website](https://kaushik530.github.io/krusty-krab/)
-
-## GitHub
-
-[View the source code](https://github.com/kaushik530/krusty-krab)
+A responsive task management application built with **HTML, CSS, and JavaScript**. It allows you to organize tasks into projects, track deadlines, priorities, and completion status, with data persisted using `localStorage`.
 
 ## Features
 
-- Home, Menu, and About pages
-- Dynamically generated content using JavaScript
-- Responsive design
-- Custom SpongeBob-inspired styling and font
-- Webpack and ES modules
+- Create and delete projects
+- Create tasks inside projects
+- Set task title, description, due date, and priority
+- Mark tasks as completed
+- Delete tasks
+- View:
+  - All Tasks
+  - Upcoming Tasks
+  - Completed Tasks
+  - Tasks belonging to a specific project
 
-## Technologies
+- Task details view
+- Priority indicators
+- Responsive mobile layout
+- Persistent data using browser `localStorage`
+- Built with ES6 modules
+- Uses `date-fns` for date formatting
 
-- HTML
-- CSS
-- JavaScript
+## Tech Stack
+
+- HTML5
+- CSS3
+- JavaScript (ES6+)
 - Webpack
+- date-fns
+- LocalStorage
 
-## Setup
+## Getting Started
+
+Clone the repository:
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_LINK
-cd krusty-krab
+git clone https://github.com/kaushik530/To-Do-List.git
+cd To-Do-List
+```
+
+Install dependencies:
+
+```bash
 npm install
-npm run dev
 ```
 
-For a production build:
+Start the development server:
 
 ```bash
-npm run build
+npm start
 ```
 
-## Purpose
+The application will be available at the local development URL shown by Webpack.
 
-Built to practice DOM manipulation, ES modules, Webpack, responsive CSS, and dynamic content generation.
+## Persistence
 
-## Disclaimer
+Projects and their associated tasks are stored in the browser's `localStorage`, so your data remains available after refreshing or reopening the website in the same browser.
 
-This is an educational fan project. SpongeBob SquarePants and related characters are properties of their respective copyright holders.
+## Deployment
+
+The project is deployed using **GitHub Pages**.
+
+**Live Demo:**
+[https://kaushik530.github.io/To-Do-List/](https://kaushik530.github.io/To-Do-List/)
+
+## Project Structure
+
+```text
+To-Do-List/
+├── src/
+│   ├── assets/
+│   ├── index.js
+│   ├── project.js
+│   ├── projectView.js
+│   ├── task.js
+│   ├── taskView.js
+│   ├── storage.js
+│   └── styles.css
+├── package.json
+├── webpack.config.js
+└── README.md
+```
+
+## Future Improvements
+
+- Edit existing tasks and projects
+- Drag-and-drop task organization
+- Better task sorting and filtering
+- Persistent task selection/state
+- Improved accessibility
+- More advanced deadline management
