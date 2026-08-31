@@ -1,150 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DO IT</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
+      <!-- ================= PROJECT SIDEBAR ================= -->
+      <aside class="project-container">
+        <div class="brand">
+          <img class="logo" alt="Do It logo" />
+          <span class="title">DO IT</span>
+        </div>
 
-        <!-- ================= PROJECT SIDEBAR ================= -->
-        <aside class="project-container">
+        <nav class="task-navigation">
+          <div class="all-tasks">All Tasks</div>
 
-            <div class="brand">
-                <img class="logo" alt="Do It logo">
-                <span class="title">DO IT</span>
-            </div>
+          <div class="upcoming-tasks">Upcoming</div>
+          <div class="completed-tasks">Completed</div>
+        </nav>
 
-            <nav class="task-navigation">
-                <div class="all-tasks">
-                    All Tasks
-                </div>
+        <section class="project-list">
+          <h1>My Projects</h1>
 
-                <div class="upcoming-tasks">
-                    Upcoming
-                </div>
-                <div class="completed-tasks">
-                    Completed
-                </div>
-            </nav>
+          <button class="add-project">
+            <span class="add-style">+</span>
+            New Project
+          </button>
 
-            <section class="project-list">
-                <h1>My Projects</h1>
-
-                <button class="add-project">
-                    <span class="add-style">+</span>
-                    New Project
-                </button>
-
-                <div class="projects"></div>
-            </section>
-
-            <!-- Project Form -->
-            <div class="project-form">
-                <form>
-                    <input
-                        type="text"
-                        class="project-name"
-                        placeholder="Project name"
-                        required
-                    >
-
-                    <div class="form-buttons">
-                        <button type="submit">Create</button>
-                        <button
-                            type="button"
-                            class="close-project-form"
-                        >
-                            Close
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-        </aside>
-
-
-        <!-- ================= TASK AREA ================= -->
-        <section class="task-container">
-            
-            <div class="task-header">
-                <h1 class="task-heading">Tasks:</h1>
-
-                <button class="add-task">
-                    <span class="add-style">+</span>
-                    New Task
-                </button>
-            </div>
-
-            <div class="tasks"></div>
-            <div class="task-details">
-                <button class="close-task-details">×</button>
-
-                <div class="details-content">
-                    <h2 class="details-title"></h2>
-
-                    <div class="details-description">
-                        <h3>Description</h3>
-                        <p class="details-description-text"></p>
-                    </div>
-
-                    <div class="details-info">
-                        <div class="details-date"></div>
-                        <div class="details-priority"></div>
-                    </div>
-                </div>
-</div>
-
-            <!-- Task Form -->
-            <div class="task-form">
-                <form>
-
-                    <input
-                        type="text"
-                        class="task-title"
-                        placeholder="Task title"
-                        required
-                    >
-
-                    <textarea
-                        class="task-description"
-                        placeholder="Description"
-                        rows="4"
-                    ></textarea>
-
-                    <input
-                        type="date"
-                        class="task-due-date"
-                        required
-                    >
-
-                    <select class="task-priority" required>
-                        <option value="" disabled selected>
-                            Priority
-                        </option>
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
-
-                    <div class="form-buttons">
-                        <button type="submit">Create</button>
-
-                        <button
-                            type="button"
-                            class="close-task-form"
-                        >
-                            Close
-                        </button>
-                    </div>
-
-                </form>
-            </div>
-
+          <div class="projects"></div>
         </section>
 
+        <!-- Project Form -->
+        <div class="project-form">
+          <form>
+            <input
+              type="text"
+              class="project-name"
+              placeholder="Project name"
+              required
+            />
+
+            <div class="form-buttons">
+              <button type="submit">Create</button>
+              <button type="button" class="close-project-form">Close</button>
+            </div>
+          </form>
+        </div>
+      </aside>
+
+      <!-- ================= TASK AREA ================= -->
+      <section class="task-container">
+        <div class="task-header">
+          <h1 class="task-heading">Tasks:</h1>
+
+          <button class="add-task">
+            <span class="add-style">+</span>
+            New Task
+          </button>
+        </div>
+
+        <div class="tasks"></div>
+        <div class="task-details">
+          <button class="close-task-details">×</button>
+
+          <div class="details-content">
+            <h2 class="details-title"></h2>
+
+            <div class="details-description">
+              <h3>Description</h3>
+              <p class="details-description-text"></p>
+            </div>
+
+            <div class="details-info">
+              <div class="details-date"></div>
+              <div class="details-priority"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Form -->
+        <div class="task-form">
+          <form>
+            <input
+              type="text"
+              class="task-title"
+              placeholder="Task title"
+              required
+            />
+
+            <textarea
+              class="task-description"
+              placeholder="Description"
+              rows="4"
+            ></textarea>
+
+            <input type="date" class="task-due-date" required />
+
+            <select class="task-priority" required>
+              <option value="" disabled selected>Priority</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+
+            <div class="form-buttons">
+              <button type="submit">Create</button>
+
+              <button type="button" class="close-task-form">Close</button>
+            </div>
+          </form>
+        </div>
+      </section>
     </main>
-</body>
+  </body>
 </html>

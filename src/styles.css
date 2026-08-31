@@ -5,497 +5,480 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: Inter, Arial, sans-serif;
-    color: #1f2937;
-    background: #f5f6f8;
+  font-family: Inter, Arial, sans-serif;
+  color: #1f2937;
+  background: #f5f6f8;
 }
 
 button,
 input,
 textarea,
 select {
-    font: inherit;
+  font: inherit;
 }
-
 
 /* =========================
    FONTS
    ========================= */
 
 @font-face {
-    font-family: museo;
-    src: url(./assets/fonts/museo-sans/MuseoSans_700.otf);
-    font-weight: 500;
+  font-family: museo;
+  src: url(./assets/fonts/museo-sans/MuseoSans_700.otf);
+  font-weight: 500;
 }
-
 
 /* =========================
    LAYOUT
    ========================= */
 
 main {
-    font-family: museo;
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    min-height: 100vh;
+  font-family: museo;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
 }
-
 
 /* =========================
    SIDEBAR
    ========================= */
 
 .project-container {
-    position: relative;
-    padding: 32px 24px;
-    background: #171717;
-    color: #f5f5f5;
-    min-height: 100vh;
+  position: relative;
+  padding: 32px 24px;
+  background: #171717;
+  color: #f5f5f5;
+  min-height: 100vh;
 }
-
 
 /* =========================
    BRAND
    ========================= */
 
 .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 45px;
-    color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 45px;
+  color: rgb(255, 255, 255);
 }
 
 .logo {
-    width: 34px;
-    height: 34px;
-    object-fit: contain;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
 
 .title {
-    font-size: 25px;
-    font-weight: 200;
-    letter-spacing: 1px;
+  font-size: 25px;
+  font-weight: 200;
+  letter-spacing: 1px;
 }
-
 
 /* =========================
    NAVIGATION
    ========================= */
 
 .task-navigation {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 38px;
 }
 
 .all-tasks,
 .upcoming-tasks,
 .completed-tasks {
-    padding: 11px 14px;
-    border-radius: 7px;
+  padding: 11px 14px;
+  border-radius: 7px;
 
-    color: #d4d4d4;
-    background: transparent;
+  color: #d4d4d4;
+  background: transparent;
 
-    font-size: 15px;
-    text-align: left;
-    cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
 
-    transition:
-        transform 0.15s ease,
-        background 0.15s ease,
-        color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
 .all-tasks:hover,
 .upcoming-tasks:hover,
 .completed-tasks:hover {
-    transform: translateY(-2px);
-    background: #262626;
-    color: white;
+  transform: translateY(-2px);
+  background: #262626;
+  color: white;
 }
-
 
 /* =========================
    PROJECT LIST
    ========================= */
 
 .project-list h1 {
-    margin-bottom: 16px;
-    color: #737373;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  margin-bottom: 16px;
+  color: #737373;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .add-project {
-    width: 100%;
+  width: 100%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    margin-bottom: 18px;
-    padding: 10px 14px;
+  margin-bottom: 18px;
+  padding: 10px 14px;
 
-    border: 1px solid #404040;
-    border-radius: 7px;
+  border: 1px solid #404040;
+  border-radius: 7px;
 
-    background: #262626;
-    color: #f5f5f5;
+  background: #262626;
+  color: #f5f5f5;
 
-    font-size: 14px;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        transform 0.15s ease,
-        background 0.15s ease,
-        border-color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .add-project:hover {
-    transform: translateY(-2px);
-    background: #303030;
-    border-color: #525252;
+  transform: translateY(-2px);
+  background: #303030;
+  border-color: #525252;
 }
 
 .add-project:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .add-style {
-    margin-right: 7px;
-    font-size: 18px;
-    line-height: 1;
+  margin-right: 7px;
+  font-size: 18px;
+  line-height: 1;
 }
-
 
 /* =========================
    PROJECT ROW
    ========================= */
 
 .projects {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .projectRow {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    width: 100%;
-    min-height: 42px;
+  width: 100%;
+  min-height: 42px;
 
-    padding: 8px 10px 8px 14px;
+  padding: 8px 10px 8px 14px;
 
-    border-radius: 7px;
+  border-radius: 7px;
 
-    background: transparent;
-    color: #d4d4d4;
+  background: transparent;
+  color: #d4d4d4;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        transform 0.15s ease,
-        background 0.15s ease,
-        color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
 .projectRow:hover {
-    transform: translateY(-2px);
-    background: #262626;
-    color: white;
+  transform: translateY(-2px);
+  background: #262626;
+  color: white;
 }
 
 .projectRow span {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
-    font-size: 14px;
+  font-size: 14px;
 }
-
 
 /* =========================
    DELETE PROJECT
    ========================= */
 
 .delete-project {
-    width: 26px;
-    height: 26px;
+  width: 26px;
+  height: 26px;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    margin-left: auto;
+  margin-left: auto;
 
-    border: none;
-    border-radius: 5px;
+  border: none;
+  border-radius: 5px;
 
-    background: transparent;
-    color: #737373;
+  background: transparent;
+  color: #737373;
 
-    font-size: 13px;
-    font-weight: 600;
+  font-size: 13px;
+  font-weight: 600;
 
-    cursor: pointer;
-    opacity: 0;
+  cursor: pointer;
+  opacity: 0;
 
-    transition:
-        transform 0.15s ease,
-        background 0.15s ease,
-        color 0.15s ease,
-        opacity 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
 }
 
 .projectRow:hover .delete-project {
-    opacity: 1;
+  opacity: 1;
 }
 
 .delete-project:hover {
-    transform: translateY(-1px);
-    background: #3f2020;
-    color: #f87171;
+  transform: translateY(-1px);
+  background: #3f2020;
+  color: #f87171;
 }
-
 
 /* =========================
    TASK AREA
    ========================= */
 
 .task-container {
-    display: none;
+  display: none;
 
-    min-width: 0;
+  min-width: 0;
 
-    flex-direction: column;
-    gap: 50px;
+  flex-direction: column;
+  gap: 50px;
 
-    margin: 24px 20px;
+  margin: 24px 20px;
 
-    background: #f8f9fb;
+  background: #f8f9fb;
 }
-
 
 /* =========================
    TASK HEADER
    ========================= */
 
 .task-header {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 900px;
 }
 
 .task-header h1 {
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: -0.7px;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
 }
 
 .add-task {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    max-width: 200px;
+  max-width: 200px;
 
-    padding: 10px 16px;
+  padding: 10px 16px;
 
-    border: none;
-    border-radius: 7px;
+  border: none;
+  border-radius: 7px;
 
-    background: #171717;
-    color: white;
+  background: #171717;
+  color: white;
 
-    font-size: 14px;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        transform 0.15s ease,
-        background 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
 }
 
 .add-task:hover {
-    transform: translateY(-2px);
-    background: #303030;
+  transform: translateY(-2px);
+  background: #303030;
 }
 
 .add-task:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
-
 
 /* =========================
    TASK LIST
    ========================= */
 
 .tasks {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
-    max-width: 900px;
+  max-width: 900px;
 }
-
 
 /* =========================
    TASK ROW
    ========================= */
 
 .taskRow {
-    display: grid;
+  display: grid;
 
-    grid-template-columns: 20px 1fr auto auto auto;
+  grid-template-columns: 20px 1fr auto auto auto;
 
-    align-items: center;
+  align-items: center;
 
-    gap: 20px;
+  gap: 20px;
 
-    min-height: 64px;
+  min-height: 64px;
 
-    padding: 12px 16px;
+  padding: 12px 16px;
 
-    border: 1px solid #e5e7eb;
-    border-radius: 9px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
 
-    background: white;
+  background: white;
 
-    transition:
-        transform 0.15s ease,
-        border-color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .taskRow:hover {
-
-    border-color: #d1d5db;
+  border-color: #d1d5db;
 }
 
 .taskRow span:first-child {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
-    color: #111827;
+  color: #111827;
 
-    font-size: 15px;
-    font-weight: 500;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .taskRow span:nth-child(2) {
-    color: #4e5766;
-    font-size: 19px;
+  color: #4e5766;
+  font-size: 19px;
 }
-
 
 /* =========================
    PRIORITY
    ========================= */
 
 .statusPriority {
-    width: 15px;
-    height: 15px;
+  width: 15px;
+  height: 15px;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .statusPriority.low {
-    background: #4ade80;
+  background: #4ade80;
 }
 
 .statusPriority.medium {
-    background: #facc15;
+  background: #facc15;
 }
 
 .statusPriority.high {
-    background: #ef4444;
+  background: #ef4444;
 }
-
 
 /* =========================
    CHECKBOX
    ========================= */
 
 .done {
-    appearance: none;
+  appearance: none;
 
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 
-    border: 2px solid #6b7280;
-    border-radius: 50%;
+  border: 2px solid #6b7280;
+  border-radius: 50%;
 
-    outline: none;
-    cursor: pointer;
+  outline: none;
+  cursor: pointer;
 
-    transition:
-        background 0.15s ease,
-        border-color 0.25s ease,
-        transform 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.25s ease,
+    transform 0.15s ease;
 }
 
 .done:hover {
-    transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .done:checked {
-    background: #1dfc72;
-    border-color: #636363;
+  background: #1dfc72;
+  border-color: #636363;
 }
-
 
 /* =========================
    DELETE TASK
    ========================= */
 
 .delete-task {
-    width: 28px;
-    height: 28px;
+  width: 28px;
+  height: 28px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    border: none;
-    border-radius: 6px;
+  border: none;
+  border-radius: 6px;
 
-    background: transparent;
-    color: #9ca3af;
+  background: transparent;
+  color: #9ca3af;
 
-    font-size: 13px;
-    font-weight: 600;
+  font-size: 13px;
+  font-weight: 600;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        transform 0.15s ease,
-        background 0.15s ease,
-        color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
 .delete-task:hover {
-    transform: translateY(-1px);
-    background: #fee2e2;
-    color: #dc2626;
+  transform: translateY(-1px);
+  background: #fee2e2;
+  color: #dc2626;
 }
-
 
 /* =========================
    FORMS
@@ -503,37 +486,35 @@ main {
 
 .project-form,
 .task-form {
-    display: none;
+  display: none;
 
-    position: fixed;
+  position: fixed;
 
-    top: 50%;
-    left: 50%;
+  top: 50%;
+  left: 50%;
 
-    transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 
-    width: min(400px, calc(100vw - 40px));
+  width: min(400px, calc(100vw - 40px));
 
-    padding: 28px;
+  padding: 28px;
 
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
 
-    background: white;
+  background: white;
 
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
 
-    z-index: 10;
+  z-index: 10;
 }
 
 .project-form form,
 .task-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
-
 
 /* =========================
    FORM INPUTS
@@ -543,422 +524,408 @@ main {
 .task-form input,
 .task-form textarea,
 .task-form select {
-    width: 100%;
+  width: 100%;
 
-    padding: 12px 13px;
+  padding: 12px 13px;
 
-    border: 1px solid #d1d5db;
-    border-radius: 7px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
 
-    background: white;
-    color: #111827;
+  background: white;
+  color: #111827;
 
-    outline: none;
+  outline: none;
 
-    transition:
-        border-color 0.15s ease,
-        box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .project-name:focus,
 .task-form input:focus,
 .task-form textarea:focus,
 .task-form select:focus {
-    border-color: #6366f1;
+  border-color: #6366f1;
 
-    box-shadow:
-        0 0 0 3px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 .task-form textarea {
-    resize: vertical;
-    min-height: 90px;
+  resize: vertical;
+  min-height: 90px;
 }
-
 
 /* =========================
    FORM BUTTONS
    ========================= */
 
 .form-buttons {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 
-    gap: 8px;
+  gap: 8px;
 
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .form-buttons button {
-    padding: 9px 16px;
+  padding: 9px 16px;
 
-    border-radius: 7px;
+  border-radius: 7px;
 
-    font-size: 14px;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        transform 0.15s ease,
-        background 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
 }
 
 .form-buttons button:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .form-buttons button:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .form-buttons button[type="submit"] {
-    border: none;
+  border: none;
 
-    background: #171717;
-    color: white;
+  background: #171717;
+  color: white;
 }
 
 .form-buttons button[type="submit"]:hover {
-    background: #303030;
+  background: #303030;
 }
 
 .close-project-form,
 .close-task-form {
-    border: 1px solid #d1d5db;
+  border: 1px solid #d1d5db;
 
-    background: white;
-    color: #4b5563;
+  background: white;
+  color: #4b5563;
 }
 
 .close-project-form:hover,
 .close-task-form:hover {
-    background: #f3f4f6;
+  background: #f3f4f6;
 }
 /* =========================
    TASK DETAILS
    ========================= */
 
 .task-details {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
 
-    width: min(420px, calc(100vw - 40px));
-    max-height: 85vh;
+  width: min(420px, calc(100vw - 40px));
+  max-height: 85vh;
 
-    padding: 36px;
+  padding: 36px;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    background: #fff;
-    border: 1px solid #e8e8e8;
-    border-radius: 24px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 24px;
 
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
 
-    transform: translate(-50%, -46%) scale(0.96);
-    opacity: 0;
-    visibility: hidden;
+  transform: translate(-50%, -46%) scale(0.96);
+  opacity: 0;
+  visibility: hidden;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease,
-        visibility 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
 }
 
 .task-details.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
 }
-
 
 /* =========================
    CONTENT
    ========================= */
 
 .details-content {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
-
 
 /* =========================
    CLOSE BUTTON
    ========================= */
 
 .close-task-details {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 
-    width: 34px;
-    height: 34px;
+  width: 34px;
+  height: 34px;
 
-    border: none;
-    border-radius: 50%;
+  border: none;
+  border-radius: 50%;
 
-    background: #f4f4f4;
+  background: #f4f4f4;
 
-    font-size: 22px;
-    line-height: 1;
+  font-size: 22px;
+  line-height: 1;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .close-task-details:hover {
-    background: #e9e9e9;
-    transform: translateY(-2px);
+  background: #e9e9e9;
+  transform: translateY(-2px);
 }
-
 
 /* =========================
    TITLE
    ========================= */
 
 .details-title {
-    margin: 0 45px 28px 0;
+  margin: 0 45px 28px 0;
 
-    font-size: 28px;
-    line-height: 1.2;
-    font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
 
-    color: #171717;
+  color: #171717;
 
-    overflow-wrap: anywhere;
+  overflow-wrap: anywhere;
 }
-
 
 /* =========================
    DESCRIPTION
    ========================= */
 
 .details-description {
-    margin-bottom: 28px;
+  margin-bottom: 28px;
 }
 
 .details-description h3 {
-    margin: 0 0 8px;
+  margin: 0 0 8px;
 
-    font-size: 12px;
-    font-weight: 700;
+  font-size: 12px;
+  font-weight: 700;
 
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 
-    color: #999;
+  color: #999;
 }
 
 .details-description-text {
-    margin: 0;
+  margin: 0;
 
-    font-size: 15px;
-    line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.65;
 
-    color: #555;
+  color: #555;
 
-    overflow-wrap: anywhere;
-    word-break: break-word;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 
-    /* Prevent ridiculously long descriptions
+  /* Prevent ridiculously long descriptions
        from making the card enormous */
-    max-height: 180px;
-    overflow-y: auto;
+  max-height: 180px;
+  overflow-y: auto;
 
-    padding-right: 6px;
+  padding-right: 6px;
 }
-
 
 /* =========================
    INFORMATION
    ========================= */
 
 .details-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .details-date,
 .details-priority {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    min-height: 48px;
-    padding: 0 16px;
+  min-height: 48px;
+  padding: 0 16px;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    border-radius: 12px;
+  border-radius: 12px;
 
-    background: #f7f7f7;
+  background: #f7f7f7;
 
-    font-size: 14px;
-    font-weight: 500;
+  font-size: 14px;
+  font-weight: 500;
 
-    color: #444;
+  color: #444;
 
-    overflow-wrap: anywhere;
+  overflow-wrap: anywhere;
 }
-
 
 /* =========================
    MOBILE
    ========================= */
 
 @media (max-width: 600px) {
+  .task-details {
+    width: calc(100vw - 28px);
+    max-height: 88vh;
 
-    .task-details {
-        width: calc(100vw - 28px);
-        max-height: 88vh;
+    padding: 30px 22px 22px;
 
-        padding: 30px 22px 22px;
+    border-radius: 20px;
+  }
 
-        border-radius: 20px;
-    }
+  .close-task-details {
+    top: 12px;
+    right: 12px;
 
-    .close-task-details {
-        top: 12px;
-        right: 12px;
+    width: 32px;
+    height: 32px;
+  }
 
-        width: 32px;
-        height: 32px;
-    }
+  .details-title {
+    margin-right: 38px;
+    margin-bottom: 22px;
 
-    .details-title {
-        margin-right: 38px;
-        margin-bottom: 22px;
+    font-size: 23px;
+    line-height: 1.25;
+  }
 
-        font-size: 23px;
-        line-height: 1.25;
-    }
+  .details-description {
+    margin-bottom: 22px;
+  }
 
-    .details-description {
-        margin-bottom: 22px;
-    }
+  .details-description h3 {
+    font-size: 11px;
+  }
 
-    .details-description h3 {
-        font-size: 11px;
-    }
+  .details-description-text {
+    font-size: 14px;
+    line-height: 1.6;
 
-    .details-description-text {
-        font-size: 14px;
-        line-height: 1.6;
+    max-height: 30vh;
 
-        max-height: 30vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 
-        overflow-y: auto;
-        overflow-x: hidden;
+    /* Important for long words/URLs */
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
 
-        /* Important for long words/URLs */
-        overflow-wrap: anywhere;
-        word-break: break-word;
-    }
+  .details-info {
+    gap: 8px;
+  }
 
-    .details-info {
-        gap: 8px;
-    }
+  .details-date,
+  .details-priority {
+    min-height: 44px;
+    padding: 10px 13px;
 
-    .details-date,
-    .details-priority {
-        min-height: 44px;
-        padding: 10px 13px;
-
-        font-size: 13px;
-    }
+    font-size: 13px;
+  }
 }
-
 
 /* Very small phones */
 
 @media (max-width: 380px) {
+  .task-details {
+    width: calc(100vw - 20px);
+    padding: 26px 18px 18px;
+  }
 
-    .task-details {
-        width: calc(100vw - 20px);
-        padding: 26px 18px 18px;
-    }
+  .details-title {
+    font-size: 21px;
+  }
 
-    .details-title {
-        font-size: 21px;
-    }
-
-    .details-description-text {
-        max-height: 25vh;
-        font-size: 13px;
-    }
+  .details-description-text {
+    max-height: 25vh;
+    font-size: 13px;
+  }
 }
 /* =========================
    EMPTY MESSAGE
    ========================= */
 
 .empty-message {
-    color: #9ca3af;
-    font-size: 15px;
-    padding: 20px 0;
+  color: #9ca3af;
+  font-size: 15px;
+  padding: 20px 0;
 }
-
 
 /* =========================
    MOBILE
    ========================= */
 
 @media (max-width: 700px) {
+  .taskRow:hover,
+  .projectRow:hover,
+  .task-container:hover,
+  .project-container:hover {
+    transform: none;
+  }
 
-    .taskRow:hover,
-    .projectRow:hover,
-    .task-container:hover,
-    .project-container:hover {
-        transform: none;
-    }
+  main {
+    grid-template-columns: 1fr;
+  }
 
+  .project-container {
+    min-height: auto;
+    padding: 24px 20px;
+  }
 
-    main {
-        grid-template-columns: 1fr;
-    }
+  .brand {
+    margin-bottom: 25px;
+  }
 
-    .project-container {
-        min-height: auto;
-        padding: 24px 20px;
-    }
+  .task-navigation {
+    margin-bottom: 25px;
+  }
 
-    .brand {
-        margin-bottom: 25px;
-    }
+  .project-list h1 {
+    margin-top: 20px;
+  }
 
-    .task-navigation {
-        margin-bottom: 25px;
-    }
+  .task-container {
+    padding: 30px 20px;
+    margin: 0;
+    gap: 30px;
+  }
 
-    .project-list h1 {
-        margin-top: 20px;
-    }
+  .task-header {
+    align-items: flex-start;
+    gap: 15px;
+  }
 
-    .task-container {
-        padding: 30px 20px;
-        margin: 0;
-        gap: 30px;
-    }
+  .task-header h1 {
+    font-size: 25px;
+  }
 
-    .task-header {
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    .task-header h1 {
-        font-size: 25px;
-    }
-
-    .taskRow {
-        grid-template-columns: 20px 1fr auto auto auto;
-        gap: 10px;
-    }
+  .taskRow {
+    grid-template-columns: 20px 1fr auto auto auto;
+    gap: 10px;
+  }
 }

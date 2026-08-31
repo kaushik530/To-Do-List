@@ -1,81 +1,79 @@
 //projectView.js
-import { projects, addProject ,deleteProject} from "./project.js";
+import { projects, addProject, deleteProject } from "./project.js";
 import { renderTasks } from "./taskView.js";
-import { taskMode ,TaskModes ,setTaskMode} from "./task.js";
-export let selectedProject=null;
+import { TaskModes, setTaskMode } from "./task.js";
+export let selectedProject = null;
 
-const addProjectBtn=document.querySelector(".add-project");
-const projectSection=document.querySelector(".projects");
+const addProjectBtn = document.querySelector(".add-project");
+const projectSection = document.querySelector(".projects");
 
 const projectFormContainer = document.querySelector(".project-form");
 const projectForm = projectFormContainer.querySelector("form");
 
-const closeFormBtn=document.querySelector(".close-project-form")
+const closeFormBtn = document.querySelector(".close-project-form");
 
-addProjectBtn.addEventListener("click",()=>{
-    projectFormContainer.style.display="block";
-})
+addProjectBtn.addEventListener("click", () => {
+  projectFormContainer.style.display = "block";
+});
 
-closeFormBtn.addEventListener("click",()=>{
-    projectFormContainer.style.display="none"
-})
+closeFormBtn.addEventListener("click", () => {
+  projectFormContainer.style.display = "none";
+});
 
-projectForm.addEventListener("submit", (event) =>{
-    projectFormContainer.style.display="none";
-    event.preventDefault();
+projectForm.addEventListener("submit", (event) => {
+  projectFormContainer.style.display = "none";
+  event.preventDefault();
 
-    const name=projectForm.querySelector(".project-name").value
-    addProject(name);
-    renderProjects(projects);
-})
+  const name = projectForm.querySelector(".project-name").value;
+  addProject(name);
+  renderProjects(projects);
+});
 
 function renderProjects(projects) {
-    projectSection.innerHTML = "";
+  projectSection.innerHTML = "";
 
-    projects.forEach(project => {
-        const projectRow = document.createElement("div");
+  projects.forEach((project) => {
+    const projectRow = document.createElement("div");
 
-        projectRow.dataset.id = project.id;
-        projectRow.classList.add("projectRow");
+    projectRow.dataset.id = project.id;
+    projectRow.classList.add("projectRow");
 
-        const name = document.createElement("span");
-        name.textContent = project.name;
+    const name = document.createElement("span");
+    name.textContent = project.name;
 
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "X";
-        deleteBtn.classList.add("delete-project");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "X";
+    deleteBtn.classList.add("delete-project");
 
-        projectRow.appendChild(name);
-        projectRow.appendChild(deleteBtn);
+    projectRow.appendChild(name);
+    projectRow.appendChild(deleteBtn);
 
-        projectSection.appendChild(projectRow);
-    });
+    projectSection.appendChild(projectRow);
+  });
 }
 
 renderProjects(projects);
 
 projectSection.addEventListener("click", (event) => {
-    
-    const projectRow = event.target.closest(".projectRow");
-    
-    if (!projectRow) return;
+  const projectRow = event.target.closest(".projectRow");
 
-    
-    
-    if (event.target.classList.contains("delete-project")) {
-        deleteProject(projectRow.dataset.id);
+  if (!projectRow) return;
 
-        if(projects.length===0){
-            selectedProject=null;
-            setTaskMode(TaskModes.PROJECT);
-            renderTasks();
-        }
-        renderProjects(projects);
-        return;
+  if (event.target.classList.contains("delete-project")) {
+    deleteProject(projectRow.dataset.id);
+
+    if (projects.length === 0) {
+      selectedProject = null;
+      setTaskMode(TaskModes.PROJECT);
+      renderTasks();
     }
-    setTaskMode(TaskModes.PROJECT);
-    selectedProject = projects.find(project => project.id === projectRow.dataset.id);
+    renderProjects(projects);
+    return;
+  }
+  setTaskMode(TaskModes.PROJECT);
+  selectedProject = projects.find(
+    (project) => project.id === projectRow.dataset.id,
+  );
 
-    renderTasks();
-
+  renderTasks();
 });
