@@ -29,7 +29,7 @@ projectForm.addEventListener("submit", (event) => {
   renderProjects(projects);
 });
 
-function renderProjects(projects) {
+function renderProjects() {
   projectSection.innerHTML = "";
 
   projects.forEach((project) => {
